@@ -526,4 +526,14 @@ form .btn-enviar input {
     max-width: 100%;
     height: auto;
   }
+  
+  /* NOVO: diminuir o tamanho da imagem do topo no celular */
+  #topo .img-topo-site img {
+    width: 60%;  /* reduz para 60% da largura do container */
+    height: auto;
+    animation: flutuar 2s ease-in-out infinite alternate;
+    max-width: 250px; /* limite máximo para não ficar gigante */
+    margin: 0 auto;
+    display: block;
+  }
 }
