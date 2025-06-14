@@ -30,7 +30,7 @@ header {
   left: 0;
   transition: 1s;
   padding-top: 10px;
-  z-index: 1000; /* Adicionei aqui para garantir que o menu sempre fique acima */
+  z-index: 1000; /* Ajuste inserido aqui */
 }
 
 header.rolagem {
@@ -166,16 +166,12 @@ section.topo .flex {
 #topo .img-topo-site img {
   position: relative;
   animation: flutuar 2s ease-in-out infinite alternate;
-  z-index: 1; /* Coloquei z-index para garantir que o gif fique atrás do menu */
+  z-index: 1; /* Ajuste inserido aqui */
 }
 
 @keyframes flutuar {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 30px;
-  }
+  0% { top: 0; }
+  100% { top: 30px; }
 }
 
 /* ESTILO DO SOBRE */
@@ -410,39 +406,90 @@ form .btn-enviar input {
 
 /* RESPONSIVIDADE */
 
-@media (max-width: 768px) {
-  /* Aqui vem o ajuste do menu na responsividade na section SOBRE */
+/* Até 1200px */
+@media (max-width: 1200px) {
+  section#projetos {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+  }
+}
 
+/* Tablets até 768px */
+@media (max-width: 768px) {
   section#sobre {
     padding: 20px 5%;
   }
-
   section#sobre .flex {
     flex-direction: column;
     gap: 15px;
   }
+  section#sobre .txt-sobre { order: 1; }
+  section#sobre .img-sobre { order: 2; }
+  section#sobre .img-sobre img { width: 100%; height: auto; }
 
-  section#sobre .txt-sobre {
-    order: 1;
-  }
+  #topo .txt-topo-site h1 { font-size: 22px; line-height: 28px; }
+  #topo .txt-topo-site h2 { font-size: 20px; line-height: 24px; }
+  #topo .txt-topo-site h1 span { font-size: 20px; }
+  #topo .txt-topo-site h2 span { font-size: 20px; }
+  #topo p { padding-right: 0; font-size: 16px; }
 
-  section#sobre .img-sobre {
-    order: 2;
+  header nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
   }
-
-  section#sobre .img-sobre img {
-    width: 100%;
-    height: auto;
+  header nav ul li {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 16px;
   }
-
-  header {
-    padding: 10px 4%;
-  }
+  .flex { flex-direction: column; gap: 20px; }
+  .img-port { width: 280px; height: 280px; padding-left: 0; padding-top: 0; }
+  .pro { width: 100%; max-width: 300px; height: auto; }
+  .btn-contato { display: none; }
+  .img-topo-site { display: flex; flex-direction: column; align-items: center; }
+  .btn-curriculo { margin-top: 20px; text-align: center; }
 }
 
-/* Celular */
+/* Celulares até 480px */
 @media (max-width: 480px) {
-  header {
-    padding: 5px 4%;
+  header nav ul {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
   }
+  header nav ul li {
+    display: inline-block;
+    padding: 10px 15px;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  header { padding: 20px 4%; }
+
+  #topo .txt-topo-site h1 { font-size: 20px; line-height: 24px; }
+  #topo .txt-topo-site h2 { font-size: 18px; line-height: 22px; }
+  #topo .txt-topo-site h1 span { font-size: 18px; }
+  #topo .txt-topo-site h2 span { font-size: 16px; }
+  #topo p { padding-right: 0; font-size: 15px; line-height: 22px; }
+
+  section#sobre { padding: 10px 5%; }
+  .flex { flex-direction: column; gap: 15px; }
+  .img-port { width: 100%; height: auto; padding-left: 0; padding-top: 0; }
+  .pro { width: 100%; max-width: 100%; height: auto; }
+
+  #topo .img-topo-site img {
+    width: 80%;
+    height: auto;
+    animation: flutuar 2s ease-in-out infinite alternate;
+    max-width: 450px;
+    margin: 0 auto;
+    display: block;
+  }
+  .img-topo-site { display: flex; flex-direction: column; align-items: center; }
+  .btn-curriculo { margin-top: 20px; text-align: center; }
 }
